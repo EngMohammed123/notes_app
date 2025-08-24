@@ -1,6 +1,7 @@
 import 'package:hive/hive.dart';
 part 'note_model.g.dart';         // // مهم جدا
 
+/// flutter packages pub run build_runner build    =>   in "Terminal"
 
 @HiveType(typeId: 0)
 class NoteModel extends HiveObject{
