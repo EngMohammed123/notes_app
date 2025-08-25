@@ -15,18 +15,22 @@ class AddNoteBottomSheet extends StatelessWidget {
       create: (context) => AddNoteCubit(),
       child: BlocConsumer<AddNoteCubit, AddNoteState>(
         listener: (context, state) {
-          if(state is AddNoteFailure){
+          if (state is AddNoteFailure) {
             print('failed  ${state.errMessage}');
           }
-          if(state is AddNoteSuccess){
+          if (state is AddNoteSuccess) {
             Navigator.pop(context);
           }
         },
         builder: (context, state) {
-          return AbsorbPointer(         // <<<============================================
+          return AbsorbPointer(
+            // <<<============================================
             absorbing: state is AddNoteLoading ? true : false,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
               child: const SingleChildScrollView(child: AddNoteForm()),
             ),
           );
