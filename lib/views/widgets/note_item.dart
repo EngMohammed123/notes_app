@@ -20,6 +20,7 @@ class NoteItem extends StatelessWidget {
         );
       },
       child: Container(
+        height: MediaQuery.of(context).size.height * 0.22,
         decoration: BoxDecoration(
           color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
@@ -31,15 +32,18 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: Text(
                 note.title,
+                maxLines: 1,
                 style: TextStyle(
                   fontSize: 26,
                   color: Colors.black,
                 ),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 8),
                 child: Text(
                   note.subTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 18,
                     color: Colors.black.withOpacity(.4),

@@ -15,4 +15,11 @@ class NotesCubit extends Cubit<NotesState> {
       emit(NotesSuccess());
   }
 
+  void updateNote(NoteModel note, String title, String subtitle) {
+    note.title = title;
+    note.subTitle = subtitle;
+    note.save();
+    fetchAllNotes();
+  }
+
 }
