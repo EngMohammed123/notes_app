@@ -24,8 +24,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return AbsorbPointer(
-            // <<<============================================
+          return AbsorbPointer(       // <<<============================================
             absorbing: state is AddNoteLoading ? true : false,
             child: Padding(
               padding: EdgeInsets.only(
